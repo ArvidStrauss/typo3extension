@@ -1,0 +1,199 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Konfiguration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<settings.db_database>
+						<TCEforms>
+							<label>Datenbank-Name:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.db_database>					
+
+					<settings.db_server>
+						<TCEforms>
+							<label>Datenbank-Server:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.db_server>
+					
+					<settings.db_username>
+						<TCEforms>
+							<label>Datenbank-Benutzername:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.db_username>
+
+					<settings.db_password>
+						<TCEforms>
+							<label>Datenbank-Passwort:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim,password</eval>
+							</config>
+						</TCEforms>
+					</settings.db_password>
+
+					<settings.admin_usergroup>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Administrator:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.admin_usergroup>
+
+					<settings.usergroup1>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Bauingenieurwesen:</label>
+							<config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup1>
+
+					<settings.usergroup2>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Elektrotechnik:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup2>
+
+					<settings.usergroup3>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Informatik/Mathematik:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup3>
+
+					<settings.usergroup4>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Landbau/Umwelt/Chemie:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup4>
+
+					<settings.usergroup5>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Maschinenbau:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup5>
+
+					<settings.usergroup6>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Geoinformation:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup6>
+
+					<settings.usergroup7>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Design:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup7>
+
+					<settings.usergroup8>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Fakultät Wirtschaftswissenschaften:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup8>
+
+					<settings.usergroup9>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Prorektorat Lehre und Studium:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup9>
+
+					<settings.usergroup10>
+						<TCEforms>
+							<label>Typo3-Benutzergruppen-ID Akademisches Auslandsamt:</label>
+		                    <config>
+								<type>input</type>
+								<size>20</size>
+								<max>30</max>
+								<eval>trim</eval>
+							</config>		                   
+						</TCEforms>
+					</settings.usergroup10>
+
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

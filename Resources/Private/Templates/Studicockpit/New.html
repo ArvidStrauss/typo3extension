@@ -1,0 +1,289 @@
+<f:layout name="Default" />
+<f:section name="content">
+
+  <div class="row">
+    <div class="alert alert-succes col-12" role="alert">
+      <f:flashMessages/>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+      <f:link.action action="list" class="btn btn-secondary w-100" id="new-offer">
+      Zurück zur Übersicht
+      </f:link.action>
+    </div>
+  </div>
+
+  <f:form action="create" class="validate-form htw_form">
+
+    <h2>Titel:</h2>
+    <div class="htw_field htw_field--input">
+      <f:form.textfield
+        type="text"
+        name="title"
+        class="htw_field__item"
+        placeholder="Angebotstitel eingeben"
+        required="required"
+        maxlength="100"
+      />
+      <small class="text-muted">Max. 100 Zeichen</small>
+    </div>
+
+    <h2>Werbe-Text:</h2>
+    <div class="htw_field htw_field--textarea">
+      <f:form.textarea
+        class="form-control htw_field__item"
+        name="adtext"
+        rows="10"
+        additionalAttributes="{minlength: '50', maxlength: '700', required: 'required'}"
+      />
+      <small class="text-muted">Mind. 50 Zeichen, Max. 700 Zeichen</small>
+    </div>
+
+    <h2>Kategorien:</h2>
+    <f:for each="{categories}" as="category" iteration="categoryIterator">
+      <div class="htw_field htw_field--radio-checkbox">
+        <f:form.checkbox
+          name="category_{category.TITLE}"
+          value="{category.OFFERS_CATEGORY_ID}"
+          class="htw_field__item check-category"
+          id="{category.TITLE}"
+        />
+        <label class="htw_field__label" for="{category.TITLE}">{category.TITLE}</label>
+      </div>
+    </f:for>
+
+    <h2>Fakultäten:</h2>
+    <div class="htw_field htw_field--radio-checkbox">
+      <input
+        type="checkbox"
+        class="htw_field__item"
+        id="check-all-faculties"
+      />
+      <label class="htw_field__label" for="check-all-faculties">Alle anwählen</label>
+    </div>
+
+    <f:for each="{faculties}" as="faculty" iteration="facultyIterator">
+      <div class="htw_field htw_field--radio-checkbox">
+        <f:form.checkbox
+          name="faculty_{faculty.DTXT}"
+          value="{facultyIterator.cycle}"
+          class="htw_field__item check-faculty"
+          id="{faculty.DTXT}"
+        />
+        <label class="htw_field__label" for="{faculty.DTXT}">{faculty.DTXT}</label>
+      </div>
+    </f:for>
+
+    <h2>Checkboxes:</h2>
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="online"
+        value="online"
+        class="htw_field__item"
+        id="online"
+      />
+      <label class="htw_field__label" for="online">Online-Kurs?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="personal"
+        value="personal"
+        class="htw_field__item"
+        id="personal"
+      />
+      <label class="htw_field__label" for="personal">Persönliches Gespräch?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="workshop"
+        value="workshop"
+        class="htw_field__item"
+        id="workshop"
+      />
+      <label class="htw_field__label" for="workshop">Workshop?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="tutorium"
+        value="tutorium"
+        class="htw_field__item"
+        id="tutorium"
+      />
+      <label class="htw_field__label" for="tutorium">Tutorium?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="fees"
+        value="fees"
+        class="htw_field__item"
+        id="fees"
+      />
+      <label class="htw_field__label" for="fees">Gebührenbehaftet?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="credits"
+        value="credits"
+        class="htw_field__item"
+        id="credits"
+      />
+      <label class="htw_field__label" for="credits">Gibt es Credits?</label>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="external"
+        value="external"
+        class="htw_field__item"
+        id="external"
+      />
+      <label class="htw_field__label" for="external">Externes Angebot?</label>
+    </div>
+
+    <h2>Abschlüsse</h2>
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="degree_bachelor"
+        value="bachelor"
+        class="htw_field__item bachelor"
+        id="bachelor"
+      />
+      <label class="htw_field__label" for="bachelor">Bachelor</label>
+    </div>
+
+    <div class="htw_field htw_field--input bachelor-slider">
+      <f:form.textfield
+        type="hidden"
+        name="semester_bachelor"
+        readonly="readonly"
+        value="1,6"
+        class="htw_field__item"
+      />
+      <div class="semester-slider" data-start="1" data-end="6"></div>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="degree_diplom"
+        value="diplom"
+        class="htw_field__item diplom"
+        id="diplom"
+      />
+      <label class="htw_field__label" for="diplom">Diplom</label>
+    </div>
+
+    <div class="htw_field htw_field--input diplom-slider">
+      <f:form.textfield
+        type="hidden"
+        name="semester_diplom"
+        readonly="readonly"
+        value="1,8"
+        class="htw_field__item"
+      />
+      <div class="semester-slider" data-start="1" data-end="8"></div>
+    </div>
+
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="degree_master"
+        value="master"
+        class="htw_field__item master"
+        id="master"
+      />
+      <label class="htw_field__label" for="master">Master</label>
+    </div>
+
+    <div class="htw_field htw_field--input master-slider">
+      <f:form.textfield
+        type="hidden"
+        name="semester_master"
+        class="htw_field__item"
+        readonly="readonly"
+        value="1,4"
+      />
+      <div class="semester-slider" data-start="1" data-end="4"></div>
+    </div>
+
+    <h2>Gültigkeit:</h2>
+    <div class="htw_field htw_field--radio-checkbox">
+      <f:form.checkbox
+        name="permanent"
+        value="permanent"
+        class="htw_field__item permanent"
+        id="permanent"
+      />
+      <label class="htw_field__label" for="permanent">Dauerhaft</label>
+    </div>
+
+    <!-- VISIBLE_FROM - VISIBLE_TO -->
+    <div class="htw_field htw_field--input visible">
+      <label class="htw_field__label" for="visible_from">Von:</label>
+      <f:form.textfield
+        type="date"
+        name="visible_from"
+        class="htw_field__item"
+        id="visible_from"
+        required="required"
+      />
+    </div>
+
+    <div class="htw_field htw_field--input visible">
+      <label class="htw_field__label" for="visible_to">Bis:</label>
+      <f:form.textfield
+        type="date"
+        name="visible_to"
+        class="htw_field__item"
+        id="visible_to"
+        required="required"
+      />
+    </div>
+  
+    <h2>Weblinks</h2>
+    <div class="htw_field htw_field--input">
+      <label class="htw_field__label" for="link_to_enrolement">Web-Link zur Einschreibung</label>
+      <f:form.textfield
+        type="url"
+        name="link_to_enrolement"
+        class="htw_field__item web-link"
+        id="link_to_enrolement"
+      />
+      <small class="text-muted">Mind. 1 Link muss gesetzt sein.</small>
+    </div>
+
+    <div class="htw_field htw_field--input">
+      <label class="htw_field__label" for="link_to_contact_person">Web-Link zum Ansprechpartner</label>
+      <f:form.textfield
+        type="url"
+        name="link_to_contact_person"
+        class="htw_field__item web-link"
+        id="link_to_contact_person"
+      />
+      <small class="text-muted">Mind. 1 Link muss gesetzt sein.</small>
+    </div>
+
+    <div class="htw_field">
+      <label class="htw_field__label" for="link_to_offer">Web-Link zum Angebot</label>
+      <f:form.textfield
+        type="url"
+        name="link_to_offer"
+        class="htw_field__item web-link"
+        id="link_to_offer"
+      />
+      <small class="text-muted">Mind. 1 Link muss gesetzt sein.</small>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <button type="submit" class="btn btn-primary w-100 submit-form">Submit</button>
+      </div>
+    </div>
+
+  </f:form>
+</f:section>

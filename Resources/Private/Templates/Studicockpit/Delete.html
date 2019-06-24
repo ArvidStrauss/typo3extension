@@ -1,0 +1,34 @@
+<f:layout name="Default" />
+<f:section name="content">
+  <div class="modal" tabindex="-1" role="dialog" id="delete-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Angebot löschen</h5>
+          <button
+            type="button"
+            class="btn btn-sm btn-primary close htw_bg--primary"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <svg class="htw_icon htw_icon--white" role="img" width="20" height="20">
+              <use xlink:href="/typo3conf/ext/xm_templates_htw/Resources/Public/theme/utils/icons/assets/dist/icons.min.svg#close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-3">Möchten sie das Angebot "{title}" wirklich löschen?</p>
+          <f:link.action
+            action="delete"
+            class="btn btn-danger delete-offer"
+            arguments="{offer-id: offer-id, confirmed: 'true', title: title}"
+          >
+            <i class="far fa-trash-alt"></i> Delete
+          </f:link.action>
+
+          <button class="btn btn-primary close-popup">Zurück zur Übersicht</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</f:section>

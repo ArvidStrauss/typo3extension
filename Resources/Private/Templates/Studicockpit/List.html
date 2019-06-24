@@ -1,0 +1,154 @@
+<f:layout name="Default" />
+<f:section name="content">
+
+  <div class="row">
+    <div class="alert col-12" role="alert">
+      <f:flashMessages/>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+      <f:link.action action="new" class="htw_footer__button w-100" id="new-offer">
+      Neues Angebot erstellen
+      </f:link.action>
+    </div>
+  </div>
+
+  <f:if condition="{result}">
+    <div id="grid" data-columns>
+      <f:for each="{result}" as="entry">
+        <div class="row no-gutters align-items-start">        
+          <div class="card col-10">
+            <div class="card-body">
+              <h5 class="card-title text-bold">{entry.TITLE}</h5>
+              
+              <p class="card-text list-ad-text">{entry.AD_TEXT}</p>
+
+              <div class="hide-this">
+                <h2>Benutzergruppe:</h2>
+                <p class="card-text">{entry.TEXT_LONG}</p>
+                
+                <h2>Checkboxen:</h2>
+                <f:if condition="{entry.ONLINE_COURSE}">
+                  <p class="card-text">&#9745; Online-Kurs</p>
+                </f:if>
+
+                <f:if condition="{entry.PERSONAL_CONVERSATION}">
+                  <p class="card-text">&#9745; Persönliches Gespräch</p>
+                </f:if>
+
+                <f:if condition="{entry.WORKSHOP}">
+                  <p class="card-text">&#9745; Workshop</p>
+                </f:if>
+
+                <f:if condition="{entry.TUTORIUM}">
+                  <p class="card-text">&#9745; Tutorium</p>
+                </f:if>
+
+                <f:if condition="{entry.FEE_REQUIRED}">
+                  <p class="card-text">&#9745; Gebühren</p>
+                </f:if>
+
+                <f:if condition="{entry.CREDITS_ACHIEVABLE}">
+                  <p class="card-text">&#9745; Credits</p>
+                </f:if>
+
+                <f:if condition="{entry.EXTERNAL_OFFER}">
+                  <p class="card-text">&#9745; Externes Angebot</p>
+                </f:if>
+
+                <h2>Gültigkeit:</h2>
+                <f:if condition="{entry.VISIBLE_TO}==2099-01-01">
+                  <f:then><p>Permanent gültig!</p></f:then>
+                  <f:else>
+                    <p>von <f:format.date format="d.m.Y">{entry.VISIBLE_FROM}</f:format.date>
+                    bis <f:format.date format="d.m.Y">{entry.VISIBLE_TO}</f:format.date></p>
+                  </f:else>
+                </f:if>
+
+                <h2>Weblinks:</h2>
+                <f:if condition="{entry.LINK_TO_ENROLEMENT}">
+                  <a href="{entry.LINK_TO_ENROLEMENT}" target="_blank" class="card-link">zur Einschreibung</a><br>
+                </f:if>
+                <f:if condition="{entry.LINK_TO_CONTACT_PERSON}">
+                  <a href="{entry.LINK_TO_CONTACT_PERSON}" target="_blank" class="card-link">zum Ansprechpartner</a><br>
+                </f:if>
+                <f:if condition="{entry.LINK_TO_OFFER}">
+                  <a href="{entry.LINK_TO_OFFER}" target="_blank" class="card-link">zum Angebot</a><br>
+                </f:if>
+
+                <h2>Kategorien:</h2>
+                <ul>
+                  <f:for each="{entry.categories}" as="category">
+                    <li>{category.TITLE}</li>
+                  </f:for>
+                </ul>
+
+                <h2>Fakultäten:</h2>
+                <ul>
+                  <f:for each="{entry.faculties}" as="faculty">
+                    <li>{faculty.DTXT}</li>
+                  </f:for>
+                </ul>
+
+                <h2>Abschlüsse:</h2>
+                <ul>
+                  <f:for each="{entry.degrees}" as="degree">
+                    <f:if condition="{degree.SEMESTER_FROM}">
+                      <f:if condition="{degree.SEMESTER_FROM}=={degree.SEMESTER_TO}">
+                        <f:then>
+                          <li>{degree.DTXT} ({degree.SEMESTER_FROM}. Semester)</li>
+                        </f:then>
+                        <f:else>
+                          <li>{degree.DTXT} ({degree.SEMESTER_FROM}. - {degree.SEMESTER_TO}. Semester)</li>
+                        </f:else>
+                      </f:if>
+                    </f:if>
+                  </f:for>
+                </ul>
+              </div><!-- End hide-this--> 
+            </div><!-- End Card-Body -->
+
+            <div class="card-footer text-muted">
+              <div class="row">
+                <div class="col-12 col-md-6 pb-3 pb-sm-0 offer-footer-column">
+                  <small>
+                    Letzte Änderung:
+                    <f:format.date format="d.m.Y">{entry.LAST_CHANGE_DATE}</f:format.date>
+                    Autor: {entry.LAST_CHANGE_USER}
+                  </small>
+                </div>
+                <div class="col-12 col-md-6 offer-footer-column justify-content-end d-flex align-items-start">
+                  <button class="btn btn-primary btn-hide">Show Details</button>
+                </div>
+              </div>
+            </div><!-- End Card-Footer -->
+
+          </div><!-- End Card -->
+
+          <div class="btn-group-vertical col-2" role="group" aria-label="Basic example">
+            <f:link.action action="detail" class="btn btn-option d-block">
+              <i class="fas fa-search-plus"></i>
+            </f:link.action>
+
+            <f:link.action
+              action="edit"
+              class="btn btn-option d-block"
+              arguments="{offer-id: entry.OFFER_ID}">
+              <i class="far fa-edit"></i>
+            </f:link.action>
+
+            <f:link.action
+              action="delete"
+              class="btn btn-option delete-offer d-block"
+              arguments="{offer-id: entry.OFFER_ID, title: entry.TITLE}">
+              <i class="far fa-trash-alt"></i>
+            </f:link.action>
+          </div>
+        </div>
+      </f:for>
+    </div>
+  </f:if>
+  <div class="modal htw_modal htw_fx--slide-up-in" tabindex="-1" role="dialog" id="popup"></div>
+</f:section>

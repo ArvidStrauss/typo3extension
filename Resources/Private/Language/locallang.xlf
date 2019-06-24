@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="htwdd_studicockpit">
+		<header/>
+		<body>
+			<trans-unit id="language" xml:space="preserve" approved="yes">
+				<source>en</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
